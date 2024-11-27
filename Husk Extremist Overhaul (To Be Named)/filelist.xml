@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Husk Extremist Overhaul" modversion="1.0.0" corepackage="False" gameversion="1.2.8.0">
+  <Item file="%ModDir%/XML/Clothing and Armor/Clothing.xml" />
+  <Item file="%ModDir%/XML/Clothing and Armor/Military.xml" />
+  <Item file="%ModDir%/XML/Clothing and Armor/Religious.xml" />
+</contentpackage>
