@@ -1,0 +1,150 @@
+﻿<Charactervariant inherit="Humanhusk" speciesname="Humanhusk1" speciestranslationoverride="Humanhusk">
+
+  <ragdolls folder="default" />
+  <animations folder="default" />
+
+<!--Outpost Security-->
+
+  <inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" accessiblebyowner="True" commonness="0.3">
+    <Item identifier="divingknife" equip="true" slot="RightHand" />
+    <Item identifier="smg" equip="false">
+      <Item identifier="smgmagazine" />
+    </Item>
+    <Item identifier="smgmagazine" amount="2" />
+    <Item identifier="securitypatrolclothes" equip="true" slot="InnerClothes" />
+    <Item identifier="bodyarmor" equip="true" slot="OuterClothes" />
+  </inventory>
+
+  <inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" accessiblebyowner="True" commonness="0.3">
+    <Item identifier="divingknife" />
+    <Item identifier="securitypatrolclothes" equip="true" slot="InnerClothes" />
+    <Item indentifier="ballistichelmet2" equip="true" slot="Head" />
+    <Item identifier="bodyarmor" equip="true" slot="OuterClothes" />
+  </inventory>
+
+  <inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" accessiblebyowner="True" commonness="0.3">
+    <Item identifier="divingknife" />
+    <Item identifier="revolver" equip="false">
+      <Item identifier="revolverround" />
+      <Item identifier="revolverround" />
+      <Item identifier="revolverround" />
+      <Item identifier="revolverround" />
+    </Item>
+    <Item identifier="revolverround" amount="6" />
+    <Item identifier="securitypatrolclothes" equip="true" slot="InnerClothes" />
+    <Item indentifier="ballistichelmet1" equip="true" slot="Head" />
+    <Item identifier="bodyarmor" equip="true" slot="OuterClothes" />
+  </inventory>
+
+  <inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" accessiblebyowner="True" commonness="0.3">
+    <Item identifier="divingknife" equip="true" slot="RightHand" />
+    <Item identifier="revolver" equip="false">
+      <Item identifier="revolverround" />
+      <Item identifier="revolverround" />
+      <Item identifier="revolverround" />
+      <Item identifier="revolverround" />
+    </Item>
+    <Item identifier="revolverround" amount="5" />
+    <Item identifier="securitypatrolclothes" equip="true" slot="InnerClothes" />
+    <Item indentifier="ballistichelmet2" equip="true" slot="Head" />
+    <Item identifier="bodyarmor" equip="true" slot="OuterClothes" />
+  </inventory>
+
+<!--Commoner-->
+
+<inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" accessiblebyowner="True" commonness="0.6">
+  <Item identifier="Commoner1" equip="true" slot="InnerClothes" />
+</inventory>
+
+<inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" accessiblebyowner="True" commonness="0.6">
+  <Item identifier="Commoner2" equip="true" slot="InnerClothes" />
+</inventory>
+
+<inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" accessiblebyowner="True" commonness="0.6">
+  <Item identifier="Commoner3" equip="true" slot="InnerClothes" />
+</inventory>
+
+<inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" accessiblebyowner="True" commonness="0.6">
+  <Item identifier="Commoner4" equip="true" slot="InnerClothes" />
+</inventory>
+
+<inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" accessiblebyowner="True" commonness="0.6">
+  <Item identifier="Commoner5" equip="true" slot="InnerClothes" />
+</inventory>
+
+<!--Assorted Jobs-->
+
+<inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" accessiblebyowner="True" commonness="0.2">
+  <Item identifier="medicalofficerclothes" equip="true" slot="InnerClothes" />
+  <Item identifier="antibleeding1" amount="7" />
+  <Item identifier="antidama1" amount="11" />
+  <Item identifier="antibloodloss1" amount="4" />
+</inventory>
+
+<inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" accessiblebyowner="True" commonness="0.4">
+  <Item identifier="minerclothes" equip="true" slot="InnerClothes" />
+  <Item identifier="toolbelt" equip="true" slot="Bag" />
+  <Item identifier="plasmacutter" />
+</inventory>
+
+<inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" accessiblebyowner="True" commonness="0.3">
+  <Item identifier="quartermasterclothes" equip="true" slot="InnerClothes" />
+</inventory>
+
+<inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" accessiblebyowner="True" commonness="0.3">
+  <Item identifier="researcherclothes" equip="true" slot="InnerClothes" />
+</inventory>
+
+<inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" accessiblebyowner="True" commonness="0.1">
+  <Item identifier="administratorclothes" equip="true" slot="InnerClothes" />
+  <Item identifier="revolver" equip="false">
+    <Item identifier="revolverround" />
+    <Item identifier="revolverround" />
+  </Item>
+  <Item identifier="revolverround" amount="8" />
+</inventory>
+
+<inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" accessiblebyowner="True" commonness="0.1">
+  <Item identifier="bluejumpsuit1" equip="true" slot="InnerClothes" />
+  <Item identifier="toolbelt" equip="true" slot="Bag" />
+  <Item identifier="weldingtool" >
+    <Item identifier="weldingfueltank" />
+  </Item>
+  <Item identifier="weldingfueltank" amount="2" />
+  <Item Identifier="screwdriver" />
+  <Item Identifier="wrench" />
+</inventory>
+
+<inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" accessiblebyowner="True" commonness="0.1">
+  <Item identifier="bluejumpsuit2" equip="true" slot="InnerClothes" />
+  <Item identifier="toolbelt" equip="true" slot="Bag" />
+  <Item identifier="weldingtool" >
+    <Item identifier="weldingfueltank" />
+  </Item>
+  <Item identifier="plasmacutter" />
+  <Item Identifier="screwdriver" equip="true" />
+  <Item Identifier="wrench" />
+</inventory>
+
+<inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" accessiblebyowner="True" commonness="0.1">
+  <Item identifier="orangejumpsuit1" equip="true" slot="InnerClothes" />
+  <Item identifier="toolbelt" equip="true" slot="Bag" />
+  <Item Identifier="screwdriver" equip="true" />
+  <Item Identifier="wrench" equip="true" />
+</inventory>
+
+<inventory arrowslot="9" slots="Card, Headset, Head, InnerClothes, OuterClothes, LeftHand, RightHand, Bag, Any, Any, Any, Any, Any, Any, Any, Any, Any, Any, HealthInterface" accessiblewhenalive="True" accessiblebyowner="True" commonness="0.1">
+  <Item identifier="orangejumpsuit2" equip="true" slot="InnerClothes" />
+  <Item identifier="toolbelt" equip="true" slot="Bag" />
+  <Item Identifier="screwdriver" />
+  <Item Identifier="wrench" equip="true" />
+</inventory>
+
+
+  <names path="Content/Characters/Human/names.xml" />
+  
+  <Vars>
+    <Var var="GENDER" tags="female,male" />
+  </Vars>
+
+</Charactervariant>
