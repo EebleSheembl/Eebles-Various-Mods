@@ -13,7 +13,7 @@
       <Sound file="Content/Items/Weapons/HarpoonGun2.ogg" type="OnUse" range="1000" />
       <Sound file="Content/Items/Weapons/HarpoonGun3.ogg" type="OnUse" range="1000" />
       <StatusEffect type="OnUse" target="This">
-        <Explosion range="150.0" force="5" shockwave="true" smoke="true" flames="false" flash="false" sparks="true" underwaterbubble="false" camerashake="1.0" />
+        <Explosion range="150.0" force="5" shockwave="true" smoke="true" flames="false" flash="false" sparks="true" underwaterbubble="true" camerashake="1.0" />
       </StatusEffect>
       <StatusEffect type="OnSpawn" target="This" targetitemcomponent="ItemContainer">
         <SpawnItem identifier="Hook" spawnposition="ThisInventory" />
@@ -21,7 +21,7 @@
       <StatusEffect delay="5" type="OnUse" target="This" targetitemcomponent="ItemContainer">
         <SpawnItem identifier="Hook" spawnposition="ThisInventory" />
       </StatusEffect>
-      <StatusEffect delay="5" type="OnUse" target="Parent" targetitemcomponent="ItemContainer">
+      <StatusEffect type="OnUse" target="Parent" targetitemcomponent="ItemContainer">
         <Affliction identifier="stun" amount="10" />
       </StatusEffect>
     </RangedWeapon>
@@ -49,7 +49,10 @@
       </StatusEffect>
       <!-- Always snap after 15 seconds -->
       <StatusEffect type="OnUse" target="This" Snapped="true" delay="15" />
-      <StatusEffect />
+      <StatusEffect targettype="NearbyCharacters" Range="5" target="This" OnlyPlayerTriggered="True" >
+        <Conditional Snapped="false" />
+        <Remove />
+      </StatusEffect>
     </Rope>
     <Projectile characterusable="false" launchimpulse="100.0" sticktocharacters="true" sticktoitems="true" sticktostructures="true" sticktodoors="true" sticktodeflective="true" sticktolighttargets="true" />
     <Upgrade gameversion="0.10.0.0" scale="0.5" />
