@@ -1,0 +1,11 @@
+﻿<Character visiblity="100" SpeciesName="Hook Point" SpeciesTranslationOverride="" DisplayName="." Group="" Humanoid="False" HasInfo="False" CanInteract="False" Husk="False" UseHuskAppendage="False" NeedsAir="False" NeedsWater="False" UseHumanAI="False" IsMachine="False" CanSpeak="False" ShowHealthBar="False" UseBossHealthBar="False" Noise="0" Visibility="0" BloodDecal="blood" BleedParticleAir="blooddrop" BleedParticleWater="waterblood" BleedParticleMultiplier="1" CanEat="False" EatingSpeed="5" UsePathFinding="False" PathFinderPriority="1" HideInSonar="False" HideInThermalGoggles="False" SonarDisruption="0" DistantSonarRange="0" DisableDistance="25000" SoundInterval="10" DrawLast="False" AITurretPriority="1" AISlowTurretPriority="1" DespawnContainer="">
+  <ragdolls folder="default" />
+  <animations folder="default" />
+  <health Vitality="1000" DoesBleed="False" CrushDepth="Infinity" UseHealthWindow="False" BleedingReduction="100" BurnReduction="100" ConstantHealthRegeneration="100" HealthRegenerationWhenEating="10" StunImmunity="True" PoisonImmunity="True" PoisonVulnerability="1" EmpVulnerability="0" ApplyAfflictionColors="False" Immunities="">
+    <Limb name="Torso" />
+  </health>
+  <ai CombatStrength="10" Sight="1" Hearing="1" MaxPerceptionDistance="-1" AggressionHurt="0" AggressionGreed="0" FleeHealthThreshold="0" AttackWhenProvoked="False" AvoidGunfire="False" DamageThreshold="100" AvoidTime="0" MinFleeTime="0" AggressiveBoarding="False" EnforceAggressiveBehaviorForMissions="False" TargetOuterWalls="False" RandomAttack="False" CanOpenDoors="False" UsePathFindingToGetInside="False" KeepDoorsClosed="False" AvoidAbyss="False" StayInAbyss="False" PatrolFlooded="False" PatrolDry="False" StartAggression="0" MaxAggression="0" AggressionCumulation="0" WallTargetingMethod="Target" />
+  <StatusEffect type="OnDeath" target="This">
+    <RemoveCharacter />
+  </StatusEffect>
+</Character>
