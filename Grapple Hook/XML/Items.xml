@@ -1,39 +1,67 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Items>
+<?xml version="1.0" encoding="utf-8"?>
 
-  <Item name="Grapple Hook" identifier="Grapple" category="Equipment" tags="" Scale="0.5" impactsoundtag="impact_metal_light" hideinmenus="false" nonplayerteaminteractable="false">
-    <Sprite texture="%ModDir%/Sprites/Utility Tools.png" sourcerect="4,9,83,45" depth="0.55" origin="0.5,0.6" />
+	<Items>
+  <Item name="Grapple Tool" identifier="Grapple" category="Equipment" tags="" Scale="0.5" impactsoundtag="impact_metal_light" hideinmenus="false" nonplayerteaminteractable="false">
+    <Sprite texture="%ModDir%/Sprites/Utility Tools.png" sourcerect="4,9,83,45" depth="0.005" origin="0.5,0.6" />
     <Body width="80" height="25" density="5" />
-    <Holdable slots="Any,RightHand,LeftHand" controlpose="false" aimpos="150,0" handle1="-60,-2" holdangle="0" usehandrotationforholdangle="true" msg="ItemMsgPickUpSelect" />
-
+    <Holdable slots="Any,RightHand,LeftHand" controlpose="false" aimpos="150,0" handle1="0,0" holdangle="0" usehandrotationforholdangle="true" msg="ItemMsgPickUpSelect" />
     <RangedWeapon barrelpos="45,0" spread="0" drawhudwhenequipped="true" crosshairscale="0.2">
       <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
       <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
       <Sound file="Content/Items/Weapons/HarpoonGun1.ogg" type="OnUse" range="1000" />
       <Sound file="Content/Items/Weapons/HarpoonGun2.ogg" type="OnUse" range="1000" />
       <Sound file="Content/Items/Weapons/HarpoonGun3.ogg" type="OnUse" range="1000" />
-      <StatusEffect type="OnUse" target="This">
-        <Explosion range="150.0" force="5" shockwave="true" smoke="true" flames="false" flash="false" sparks="true" underwaterbubble="true" camerashake="1.0" />
+
+      <StatusEffect type="Always" target="Parent">
+        <Conditional IsPlayer="true" />
+        <Conditional HasTag="hooked " />
+        <Affliction identifier="drag" amount="10" />
       </StatusEffect>
-      <StatusEffect type="OnSpawn" target="This" targetitemcomponent="ItemContainer">
-        <SpawnItem identifier="Hook" spawnposition="ThisInventory" />
-      </StatusEffect>
-      <StatusEffect delay="5" type="OnUse" target="This" targetitemcomponent="ItemContainer">
-        <SpawnItem identifier="Hook" spawnposition="ThisInventory" />
-      </StatusEffect>
-      <StatusEffect type="OnUse" target="Parent" targetitemcomponent="ItemContainer">
-        <Affliction identifier="stun" amount="10" />
-      </StatusEffect>
+
     </RangedWeapon>
     <ItemContainer hideitems="true" capacity="1" maxstacksize="1" containedstateindicatorstyle="spear">
-      <Containable items="Hook" />
+
+        <Containable items="Hook" hide="false" itempos="45,-2" />
+
     </ItemContainer>
+   
+    <CustomInterface canbeselected="true" drawhudwhenequipped="true">
+      <GuiFrame relativesize="0.12,0.12" anchor="BottomLeft" absoluteoffset="20,128" style="ItemUI" />
+
+      <TickBox text="Rappel mode Toggle">
+
+        <StatusEffect type="OnUse" target="Contained" disabledeltatime="true" setvalue="true" targetidentifiers="GrappleHook">
+          <Remove />
+        </StatusEffect>
+
+        <StatusEffect type="OnUse" target="This" disabledeltatime="true" setvalue="true" comparison="and">
+          <SpawnItem identifiers="RappelHook" spawnposition="ThisInventory" />
+        <StatusEffect delay="0" type="OnUse" target="This" targetitemcomponent="ItemContainer">
+          <SpawnItem identifier="RappelHook" spawnposition="ThisInventory" />
+       </StatusEffect>
+         </StatusEffect>
+
+
+        <StatusEffect type="OnSecondaryUse" target="Contained" disabledeltatime="true" setvalue="true" targetidentifiers="RappelHook">
+          <Remove />
+        </StatusEffect>
+
+        <StatusEffect type="OnSecondaryUse" target="This" disabledeltatime="true" setvalue="true" comparison="and">
+          <SpawnItem identifiers="GrappleHook" spawnposition="ThisInventory" />
+        <StatusEffect delay="0" type="OnUse" target="This" targetitemcomponent="ItemContainer">
+          <SpawnItem identifier="GrappleHook" spawnposition="ThisInventory" />
+       </StatusEffect>
+         </StatusEffect>
+
+
+      </TickBox>
+    </CustomInterface>
 
   </Item>
 
-  <Item identifier="Hook" category="hidden" interactthroughwalls="true" tags="mediumitem,harpoonammo,handheldammo" Scale="0.5" impactsoundtag="impact_metal_light" hideinmenus="true" nonplayerteaminteractable="True">
+  <Item name="GrappleHook" identifier="GrappleHook" category="hidden" interactthroughwalls="true" tags="mediumitem,harpoonammo,handheldammo,Hook" Scale="0.5" impactsoundtag="impact_metal_light" hideinmenus="true" nonplayerteaminteractable="True">
     <Sprite texture="%ModDir%/Sprites/Utility Tools.png" sourcerect="4,54,35,14" depth="0.55" origin="0.3,0.5" />
-    <Body width="70" height="20" density="50" />
+    <Body width="70" height="20" density="0" />
     <Rope sourcepullforce="8000" targetpullforce="0" projectilepullforce="0" maxlength="10000" snaponcollision="false" spritewidth="4" tile="true" origin="0.30,0.5" targetminmass="-10" lerpforces="false" SnapWhenNotAimed="False" snapanimduration="0.5" ReelSoundPitchSlide="1.0,2.25">
       <Sprite name="Rope" texture="Content/Characters/Fractalguardian/Fractalguardian.png" sourcerect="343,622,32,15" depth="0.57" origin="0.5,0.5" />
       <SnapSound file="Content/Items/Weapons/HarpoonGun1.ogg" range="500" frequencymultiplier="3.0,4.0" />
@@ -47,14 +75,131 @@
       <StatusEffect type="OnUse" target="This" Snapped="true" delay="5" checkconditionalalways="true">
         <Conditional targetitemcomponent="Projectile" IsStuckToTarget="false" />
       </StatusEffect>
-      <!-- Always snap after 15 seconds -->
-      <StatusEffect type="OnUse" target="This" Snapped="true" delay="15" />
-      <StatusEffect targettype="NearbyCharacters" Range="5" target="This" OnlyPlayerTriggered="True" >
-        <Conditional Snapped="false" />
-        <Remove />
+
+      <StatusEffect type="OnNotContained,OnImpact" target="This" tags="stuck" delay="0" stackable="false" disabledeltatime="true" />
+      <StatusEffect type="OnNotContained,OnImpact" target="Parent" tags="hooked" delay="0" stackable="false" disabledeltatime="true" />
+
+      <StatusEffect type="OnNotContained" target="This,NearbyCharacters" range="65" comparison="Or">
+         <Conditional IsPlayer="true" />
+         <Conditional HasTag="stuck " />
+         <RemoveItem/>
       </StatusEffect>
+
+
     </Rope>
     <Projectile characterusable="false" launchimpulse="100.0" sticktocharacters="true" sticktoitems="true" sticktostructures="true" sticktodoors="true" sticktodeflective="true" sticktolighttargets="true" />
     <Upgrade gameversion="0.10.0.0" scale="0.5" />
   </Item>
-</Items>
+
+  <Item name="RappelHook" identifier="RappelHook" category="hidden" interactthroughwalls="true" tags="mediumitem,harpoonammo,handheldammo,Hook" Scale="0.5" impactsoundtag="impact_metal_light" hideinmenus="true" nonplayerteaminteractable="True">
+    <Sprite texture="%ModDir%/Sprites/Utility Tools.png" sourcerect="4,54,35,14" depth="0.55" origin="0.3,0.5" />
+    <Body width="70" height="20" density="0" />
+    <Rope sourcepullforce="1375" targetpullforce="0" projectilepullforce="0" maxlength="10000" snaponcollision="false" spritewidth="4" tile="true" origin="0.30,0.5" targetminmass="-10" lerpforces="false" SnapWhenNotAimed="False" snapanimduration="0.5" ReelSoundPitchSlide="1.0,2.25">
+      <Sprite name="Rope" texture="Content/Characters/Fractalguardian/Fractalguardian.png" sourcerect="343,622,32,15" depth="0.57" origin="0.5,0.5" />
+      <SnapSound file="Content/Items/Weapons/HarpoonGun1.ogg" range="500" frequencymultiplier="3.0,4.0" />
+      <ReelSound file="Content/Items/Weapons/WEAPON_harpoonGunReelLoop.ogg" range="1000" />
+      <!-- Remove 1 second after snapping -->
+      <StatusEffect type="Always" target="This" delay="1" checkconditionalalways="true">
+        <Conditional Snapped="true" />
+        <Remove />
+      </StatusEffect>
+      <!-- Snap after 5 seconds if not stuck to anything -->
+      <StatusEffect type="OnUse" target="This" Snapped="true" delay="5" checkconditionalalways="true">
+        <Conditional targetitemcomponent="Projectile" IsStuckToTarget="false" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained,OnImpact" target="Parent" tags="hooked" delay="0" stackable="false" disabledeltatime="true" />
+
+
+      <!--Grapple Part
+      <StatusEffect type="OnNotContained,OnImpact" target="This" tags="stuck" delay="0" stackable="false" disabledeltatime="true" />
+
+      <StatusEffect type="OnNotContained" target="This,NearbyCharacters" range="150" comparison="Or">
+         <Conditional IsPlayer="true" />
+         <Conditional HasTag="stuck " />
+         <RemoveItem/>
+      </StatusEffect>
+      -->
+
+    </Rope>
+    <Projectile characterusable="false" launchimpulse="100.0" sticktocharacters="true" sticktoitems="true" sticktostructures="true" sticktodoors="true" sticktodeflective="true" sticktolighttargets="true" />
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  </Item>
+
+  <Item name="ReelingHook" identifier="ReelingHook" category="hidden" interactthroughwalls="true" tags="mediumitem,harpoonammo,handheldammo,Hook" Scale="0.5" impactsoundtag="impact_metal_light" hideinmenus="true" nonplayerteaminteractable="True">
+    <Sprite texture="%ModDir%/Sprites/Utility Tools.png" sourcerect="4,54,35,14" depth="0.55" origin="0.3,0.5" />
+    <Body width="70" height="20" density="0" />
+    <Rope sourcepullforce="300" targetpullforce="150" projectilepullforce="5" maxlength="10000" snaponcollision="false" spritewidth="4" tile="true" origin="0.30,0.5" targetminmass="-10" lerpforces="false" SnapWhenNotAimed="False" snapanimduration="0.5" ReelSoundPitchSlide="1.0,2.25">
+      <Sprite name="Rope" texture="Content/Characters/Fractalguardian/Fractalguardian.png" sourcerect="343,622,32,15" depth="0.57" origin="0.5,0.5" />
+      <SnapSound file="Content/Items/Weapons/HarpoonGun1.ogg" range="500" frequencymultiplier="3.0,4.0" />
+      <ReelSound file="Content/Items/Weapons/WEAPON_harpoonGunReelLoop.ogg" range="1000" />
+      <!-- Remove 1 second after snapping -->
+      <StatusEffect type="Always" target="This" delay="1" checkconditionalalways="true">
+        <Conditional Snapped="true" />
+        <Remove />
+      </StatusEffect>
+      <!-- Snap after 5 seconds if not stuck to anything -->
+      <StatusEffect type="OnUse" target="This" Snapped="true" delay="5" checkconditionalalways="true">
+        <Conditional targetitemcomponent="Projectile" IsStuckToTarget="false" />
+      </StatusEffect>
+      <StatusEffect type="OnNotContained,OnImpact" target="Parent" tags="hooked" delay="0" stackable="false" disabledeltatime="true" />
+    </Rope>
+    <Projectile characterusable="false" launchimpulse="100.0" sticktocharacters="true" sticktoitems="true" sticktostructures="true" sticktodoors="true" sticktodeflective="true" sticktolighttargets="true" />
+    <Upgrade gameversion="0.10.0.0" scale="0.5" />
+  </Item>
+
+<!--Test Grapple-->
+  <Item name="Grapple Tool Test" identifier="GrappleTest" category="Equipment" tags="" Scale="0.5" impactsoundtag="impact_metal_light" hideinmenus="false" nonplayerteaminteractable="false">
+    <Sprite texture="%ModDir%/Sprites/Utility Tools.png" sourcerect="4,9,83,45" depth="0.005" origin="0.5,0.6" />
+    <Body width="80" height="25" density="5" />
+    <Holdable slots="Any,RightHand,LeftHand" controlpose="false" aimpos="150,0" handle1="0,0" holdangle="0" usehandrotationforholdangle="true" msg="ItemMsgPickUpSelect" />
+    <RangedWeapon barrelpos="45,0" spread="0" drawhudwhenequipped="true" crosshairscale="0.2">
+      <Crosshair texture="Content/Items/Weapons/Crosshairs.png" sourcerect="0,256,256,256" />
+      <CrosshairPointer texture="Content/Items/Weapons/Crosshairs.png" sourcerect="256,256,256,256" />
+      <Sound file="Content/Items/Weapons/HarpoonGun1.ogg" type="OnUse" range="1000" />
+      <Sound file="Content/Items/Weapons/HarpoonGun2.ogg" type="OnUse" range="1000" />
+      <Sound file="Content/Items/Weapons/HarpoonGun3.ogg" type="OnUse" range="1000" />
+
+    </RangedWeapon>
+    <ItemContainer hideitems="true" capacity="1" maxstacksize="1" containedstateindicatorstyle="spear">
+
+        <Containable items="Hook" hide="false" itempos="45,-2" />
+
+    </ItemContainer>
+   
+    <CustomInterface canbeselected="true" allowuioverlap="true">
+      <GuiFrame relativesize="0.15,0.18" anchor="BottomLeft" relativeoffset="0.1125,0.001" style="ItemUI" />
+      <Button text="Grapple Mode" target="This" tags="Grappel" />
+      <Button text="Rappel Mode" target="This" tags="Rappel" />
+      <Button text="Reel Mode" target="This" tags="Reel" />
+    </CustomInterface>
+<!--Grappling-->
+    <StatusEffect type="Always" target="This" targetitemcomponent="ItemContainer">
+      <Conditional HasTag="Grapple" />
+      <SpawnItem identifier="GrappleHook" spawnposition="ThisInventory" />
+    </StatusEffect>
+    <StatusEffect type="Always" target="Contained" disabledeltatime="true" setvalue="true" targetidentifiers="ReelingHook,RappelHook">
+     <Conditional HasTag="GrappleHook" />
+      <Remove />
+    </StatusEffect>
+<!--Rappeling-->
+    <StatusEffect type="Always" target="This" targetitemcomponent="ItemContainer">
+      <Conditional HasTag="Rappel" />
+      <SpawnItem identifier="RappelHook" spawnposition="ThisInventory" />
+    </StatusEffect>
+    <StatusEffect type="Always" target="Contained" disabledeltatime="true" setvalue="true" targetidentifiers="GrappleHook,ReelingHook">
+     <Conditional HasTag="Rappel" />
+      <Remove />
+    </StatusEffect>
+<!--Reeling-->
+    <StatusEffect type="Always" target="This" targetitemcomponent="ItemContainer">
+      <Conditional HasTag="Reel" />
+      <SpawnItem identifier="ReelingHook" spawnposition="ThisInventory" />
+    </StatusEffect>
+    <StatusEffect type="Always" target="Contained" disabledeltatime="true" setvalue="true" targetidentifiers="GrappleHook,RappelHook">
+     <Conditional HasTag="Reel" />
+      <Remove />
+    </StatusEffect>
+
+  </Item>
+
+	</Items>
