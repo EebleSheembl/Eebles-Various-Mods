@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Robe Physics" modversion="1.0.0" corepackage="False">
+  <Item file="%ModDir%/Clothes.xml" />
+  <Character file="%ModDir%/Robe Physics/HumanRobephysics.xml" />
+  <Afflictions file="%ModDir%/Afflictions.xml" />
+</contentpackage>
