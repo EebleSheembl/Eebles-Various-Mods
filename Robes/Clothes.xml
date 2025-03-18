@@ -1,0 +1,49 @@
+<Items>
+<Item name="Robe" identifier="Robe" category="Equipment" description="" cargocontaineridentifier="metalcrate" tags="smallitem,clothing" scale="0.5" impactsoundtag="impact_soft">
+  
+  <Price baseprice="500" displaynonempty="true">
+      <Price storeidentifier="merchantoutpost" multiplier="1.5" minavailable="0" maxavailable="1" />
+      <Price storeidentifier="merchantcity" multiplier="1.25" minavailable="0" maxavailable="1" />
+      <Price storeidentifier="merchantresearch" sold="false" multiplier="1.25" />
+      <Price storeidentifier="merchantmilitary" multiplier="0.95" sold="false" />
+      <Price storeidentifier="merchantmine" sold="false" multiplier="1.25" />
+      <Price storeidentifier="merchantarmory" multiplier="0.95" sold="false" />
+    </Price>
+
+    <Deconstruct time="20">
+      <Item identifier="organicfiber" />
+      <Item identifier="organicfiber" />
+    </Deconstruct>
+
+    <InventoryIcon name="coatinv" texture="%ModDir%/Robe.png" sourcerect="636,0,88,70" origin="0.5,0.5" />
+    <Sprite name="coatground" texture="Content/Items/Jobgear/MiscJobGear.png" sourcerect="642,296,119,57" depth="0.6" origin="0.5,0.5" />
+    <Body width="180" height="50" density="30" friction="0.8" restitution="0.01" />
+
+    <Wearable slots="Any,OuterClothes" msg="ItemMsgPickUpSelect">
+      <sprite name="Coat Torso" texture="Robe.png" limb="Torso" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,786,256" origin="0.5,0.5" />
+      <sprite name="Coat Right Lower Arm" texture="Robe.png" limb="RightForearm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,786,256" origin="0.5,0.5" />
+      <sprite name="Coat Left Lower Arm" texture="Robe.png" limb="LeftForearm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,786,256" origin="0.5,0.5" />
+      <sprite name="Coat Right Upper Arm" texture="Robe.png" limb="RightArm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,786,256" origin="0.5,0.5" />
+      <sprite name="Coat Left Upper Arm" texture="Robe.png" limb="LeftArm" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,786,256" origin="0.5,0.5" />
+      <sprite name="Coat Waist" texture="Robe.png" limb="Waist" hidelimb="false" inherittexturescale="true" inheritorigin="true" inheritsourcerect="true" sourcerect="0,0,786,256" origin="0.5,0.5" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="burn,bitewounds" damagemultiplier="0.6" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="bleeding" damagemultiplier="0.7" />
+      <damagemodifier armorsector="0.0,360.0" afflictionidentifiers="gunshotwound" damagemultiplier="0.8" />
+      <SkillModifier skillidentifier="helm" skillvalue="5" />
+      <SkillModifier skillidentifier="weapons" skillvalue="5" />
+
+      <StatusEffect type="OnWearing" target="Character" setvalue="true" disabledeltatime="true">
+        <Affliction identifier="RobePhysicsAffliction" strength="100" />
+      </StatusEffect>
+
+      <StatusEffect target="Character" type="OnDeath">
+        <ReduceAffliction identifier="RobePhysicsAffliction" amount="100" />
+      </StatusEffect>
+
+    </Wearable>
+    <ItemContainer capacity="4">
+      <Containable items="smallitem" excludeditems="clothing,toolbox,mobilecontainer,rucksack,backpack,waistbelt,vest,backpack1,medicalbackpack,power-backpack,duffelbag,heavybackpack,oxy-gen. backpack,xeno-backpack,techno-backpack" />
+    </ItemContainer>
+
+  </Item>
+</Items>
