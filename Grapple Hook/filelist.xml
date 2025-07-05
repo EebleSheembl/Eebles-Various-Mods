@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<contentpackage name="Grapple Hook" modversion="1.0.4" corepackage="False" gameversion="1.6.19.1">
-  <Item file="%ModDir%/XML/Items.xml" />
-  <Character file="%ModDir%/Hook Point/Hookpoint.xml" />
-  <Submarine file="%ModDir%/Test Room.sub" />
-</contentpackage>
